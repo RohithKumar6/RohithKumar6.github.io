@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pasupuleti Rohith Kumar | Software Developer</title>
+<meta name="description" content="Portfolio of Pasupuleti Rohith Kumar, B.Tech CSE student and Front-End / Back-End developer. Projects: PrivyScan, AI Lead Generation System.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%94%8E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FB; --surface:#FFFFFF; --ink:#14233B; --muted:#52627A; --line:#D6DEEA;
+  --accent:#1459D9; --flag:#C8321E; --flag-bg:#FCE9E5; --code-bg:#14233B; --code-ink:#DCE6F5;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1726; --surface:#152238; --ink:#E7EDF7; --muted:#9AAAC2; --line:#26364F;
+    --accent:#6EA0FF; --flag:#FF8F7D; --flag-bg:#3A1F24; --code-bg:#0A111D; --code-ink:#DCE6F5;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1726; --surface:#152238; --ink:#E7EDF7; --muted:#9AAAC2; --line:#26364F;
+  --accent:#6EA0FF; --flag:#FF8F7D; --flag-bg:#3A1F24; --code-bg:#0A111D; --code-ink:#DCE6F5;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.15;margin:0;letter-spacing:-.01em}
+h2{font-size:1.9rem;font-weight:700}
+p{margin:0 0 1em;max-width:62ch}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;flex-wrap:wrap}
+.brand{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);text-decoration:none}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;padding:56px 0 72px}
+.hero h1{font-size:clamp(2.4rem,5.4vw,3.9rem);font-weight:700}
+.hero .role{font-size:1.2rem;color:var(--muted);margin:18px 0 10px;max-width:34ch}
+.hero .lede{max-width:46ch}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-weight:500;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0E1726}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.primary{color:#0E1726}}
+.btn:hover{filter:brightness(1.08)}
+
+/* the one memorable moment: a scan finding a leaked key */
+.scan{background:var(--code-bg);color:var(--code-ink);border-radius:10px;font:400 .86rem/1.9 "IBM Plex Mono",ui-monospace,monospace;position:relative;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.scan .bar{padding:9px 16px;border-bottom:1px solid rgba(255,255,255,.12);font-size:.78rem;opacity:.75}
+.scan pre{margin:0;padding:12px 0;overflow-x:auto}
+.ln{display:block;padding:0 16px;white-space:pre}
+.ln.hit{animation:hit .4s 2.1s forwards}
+.tag{display:inline-block;margin-left:10px;padding:0 8px;border-radius:4px;background:var(--flag-bg);color:var(--flag);font-size:.74rem;opacity:0;animation:fadein .4s 2.3s forwards}
+.sweep{position:absolute;left:0;right:0;top:38px;height:2px;background:#6EA0FF;box-shadow:0 0 14px 3px rgba(110,160,255,.7);animation:sweep 2.2s ease-in-out forwards}
+@keyframes sweep{from{transform:translateY(0);opacity:1}to{transform:translateY(150px);opacity:1}}
+@keyframes hit{to{background:rgba(200,50,30,.28)}}
+@keyframes fadein{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .sweep{display:none}
+  .ln.hit{animation:none;background:rgba(200,50,30,.28)}
+  .tag{animation:none;opacity:1}
+  html{scroll-behavior:auto}
+}
+
+section{padding:56px 0;border-top:1px solid var(--line)}
+section>h2{margin-bottom:28px}
+
+.proj{display:grid;grid-template-columns:200px 1fr;gap:12px 40px;padding:28px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj h3{font-size:1.35rem}
+.meta{color:var(--muted);font-size:.93rem;margin-top:6px}
+.proj ul{margin:0 0 14px;padding-left:1.1em;max-width:62ch}
+.proj li{margin-bottom:6px}
+.links{display:flex;gap:18px;flex-wrap:wrap;font-weight:500}
+
+.skills{display:grid;grid-template-columns:200px 1fr;gap:14px 40px;margin:0}
+.skills dt{font-weight:500}
+.skills dd{margin:0;color:var(--muted)}
+
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:1fr auto;gap:4px 24px;padding:14px 0;border-top:1px solid var(--line)}
+.rows li:first-child{border-top:0;padding-top:0}
+.rows .when{color:var(--muted);font-size:.93rem;text-align:right}
+.rows .sub{color:var(--muted);font-size:.93rem;grid-column:1/-1}
+
+.contact p{font-size:1.1rem}
+.contact .list{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:8px;font-weight:500}
+footer{padding:36px 0 48px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;gap:36px;padding:32px 0 48px}
+  .proj,.skills{grid-template-columns:1fr}
+  .rows li{grid-template-columns:1fr}
+  .rows .when{text-align:left}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top">Rohith Kumar</a>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#credentials">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <h1>Pasupuleti Rohith Kumar</h1>
+        <p class="role">Front-end and back-end developer from Tirupati, Andhra Pradesh.</p>
+        <p class="lede">I’m a final-year B.Tech CSE student. I build web tools in Python and JavaScript, such as PrivyScan, a scanner that finds leaked API keys and passwords in code, and I develop on the Salesforce platform.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="scan" role="img" aria-label="Illustration: a code scan flags an exposed API key on line 4">
+        <div class="sweep"></div>
+        <div class="bar">config.py</div>
+<pre><span class="ln">APP_NAME = "demo-shop"</span><span class="ln">DEBUG = False</span><span class="ln">DB_HOST = "localhost"</span><span class="ln hit">API_KEY = "sk_live_EXAMPLE_ONLY"<span class="tag">exposed key</span></span><span class="ln">PORT = 5000</span></pre>
+      </div>
+    </div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <article class="proj">
+        <div>
+          <h3>PrivyScan</h3>
+          <p class="meta">Built at HackPrix Season 2</p>
+        </div>
+        <div>
+          <p>An offline privacy scanner that reads source code and reports secrets and personal data before they get pushed or shared.</p>
+          <ul>
+            <li>Detects API keys, passwords, tokens and personal data using Python AST analysis and regex scanning.</li>
+            <li>Supports Python, JavaScript, Java, Go, C/C++, JSON, .env and YAML files.</li>
+            <li>Scans ZIP archives and large codebases, and suggests how to fix each finding.</li>
+            <li>Interactive dashboard for reviewing results. Built with Flask, Bootstrap and custom CSS.</li>
+          </ul>
+          <div class="links">
+            <a href="https://privyscanv1-1-1.onrender.com/" target="_blank" rel="noopener">Live demo</a>
+            <a href="https://lnkd.in/gWYAba4n" target="_blank" rel="noopener">GitHub repository</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div>
+          <h3>AI Lead Generation System</h3>
+          <p class="meta">Salesforce, June to July 2026. Five Agile sprints.</p>
+        </div>
+        <div>
+          <p>A lead-management app on Salesforce that scores incoming leads and writes an AI summary for the sales team.</p>
+          <ul>
+            <li>Custom Lead fields: Lead Score, Lead Category (Hot, Warm, Cold), Product Interest and AI Summary.</li>
+            <li>Validation rule that rejects personal email domains such as Gmail, Yahoo, Hotmail and Outlook.</li>
+            <li>Lead Manager and Sales Agent profiles and roles, with a record-triggered Flow that emails leads on create or update.</li>
+            <li>Einstein Prompt Builder template that generates the AI Summary on the Lead page, plus a Lightning app, reports and dashboards.</li>
+          </ul>
+          <div class="links">
+            <a href="https://github.com/RohithKumar6/SALESFORCE_PROJECT_AI_POWERED_LEAD_GENERATION_SYSTEM" target="_blank" rel="noopener">GitHub repository</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt><dd>C, Java, Python, JavaScript, HTML, CSS</dd>
+        <dt>Frameworks and libraries</dt><dd>Flask, FastAPI, Pandas, Sentence-Transformers</dd>
+        <dt>Database</dt><dd>MySQL</dd>
+        <dt>Platforms and tools</dt><dd>Salesforce, Git, GitHub</dd>
+      </dl>
+    </section>
+
+    <section id="credentials">
+      <h2>Certifications and activities</h2>
+      <ul class="rows">
+        <li>
+          <span>Salesforce Certified Platform Developer I</span><span class="when">Jul 2026</span>
+          <span class="sub">Credential ID 7977374. Verify at <a href="https://sforce.co/verifycerts" target="_blank" rel="noopener">sforce.co/verifycerts</a>.</span>
+        </li>
+        <li>
+          <span>Salesforce Certified Administrator with AI Agentforce Specialization, virtual internship (APSCHE and SmartBridge)</span><span class="when">Jul 2026</span>
+          <span class="sub">2 months, 120 hours. Certificate ID VIP-SF-2026-0098.</span>
+        </li>
+        <li>
+          <span>Infosys Springboard: Applied Generative AI Certification</span><span class="when">Feb 2025</span>
+          <span class="sub">Verify at <a href="https://verify.onwingspan.com" target="_blank" rel="noopener">verify.onwingspan.com</a>.</span>
+        </li>
+        <li>
+          <span>LinkedIn Learning: Learning Python</span><span class="when">Nov 2026</span>
+        </li>
+        <li>
+          <span>LinkedIn Learning: Career Essentials in Generative AI by Microsoft and LinkedIn</span><span class="when">Jun 2026</span>
+        </li>
+        <li>
+          <span>LinkedIn Learning: What Is Generative AI?</span><span class="when">Jun 2026</span>
+        </li>
+        <li>
+          <span>Hackathons: Hack the Horizon 2.0 (VIT Chennai) and HackPrix Season 2 (Hyderabad)</span><span class="when"></span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ul class="rows">
+        <li>
+          <span>B.Tech in Computer Science and Engineering, Mohan Babu University</span><span class="when">2023 to 2027</span>
+          <span class="sub">CGPA 9.15</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>I’m looking for internships and entry-level roles in front-end and back-end development. The quickest way to reach me is email.</p>
+      <div class="list">
+        <a href="mailto:pasupuletirohithkumar6@gmail.com">pasupuletirohithkumar6@gmail.com</a>
+        <a href="https://www.linkedin.com/in/pasupuleti-rohith-kumar-160b58356" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/RohithKumar6" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://leetcode.com/u/Rohith_Kumar_06/" target="_blank" rel="noopener">LeetCode</a>
+        <a href="https://www.hackerrank.com/profile/P_Rohith_Kumar_6" target="_blank" rel="noopener">HackerRank</a>
+        <a href="https://www.codechef.com/users/neat_scene_26" target="_blank" rel="noopener">CodeChef</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Pasupuleti Rohith Kumar</footer>
+</div>
+</body>
+</html>
